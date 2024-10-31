@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 30 oct. 2024 à 23:08
+-- Généré le : jeu. 31 oct. 2024 à 05:07
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -185,6 +185,24 @@ CREATE TABLE IF NOT EXISTS `produits` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `recues`
+--
+
+DROP TABLE IF EXISTS `recues`;
+CREATE TABLE IF NOT EXISTS `recues` (
+  `id_recue` int NOT NULL,
+  `id_produit` int DEFAULT NULL,
+  `id_vente` int DEFAULT NULL,
+  `id_client` int DEFAULT NULL,
+  PRIMARY KEY (`id_recue`),
+  KEY `id_produit` (`id_produit`),
+  KEY `id_vente` (`id_vente`),
+  KEY `id_client` (`id_client`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `utilisateurs`
 --
 
@@ -244,6 +262,14 @@ ALTER TABLE `ligne_commande_client`
 ALTER TABLE `ligne_commande_fournisseur`
   ADD CONSTRAINT `ligne_commande_fournisseur_ibfk_1` FOREIGN KEY (`id_commande`) REFERENCES `commande_fournisseur` (`id_commande`),
   ADD CONSTRAINT `ligne_commande_fournisseur_ibfk_2` FOREIGN KEY (`id_produit`) REFERENCES `produits` (`id`);
+
+--
+-- Contraintes pour la table `recues`
+--
+ALTER TABLE `recues`
+  ADD CONSTRAINT `recues_ibfk_1` FOREIGN KEY (`id_produit`) REFERENCES `produits` (`id`),
+  ADD CONSTRAINT `recues_ibfk_2` FOREIGN KEY (`id_vente`) REFERENCES `ventes` (`id`),
+  ADD CONSTRAINT `recues_ibfk_3` FOREIGN KEY (`id_client`) REFERENCES `clients` (`id_client`);
 
 --
 -- Contraintes pour la table `ventes`
