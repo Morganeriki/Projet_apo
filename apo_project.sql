@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `clients` (
 --
 
 DROP TABLE IF EXISTS `details_fournitures`;
-CREATE TABLE IF NOT EXISTS `details_founitures` (
+CREATE TABLE IF NOT EXISTS `details_fournitures` (
   `id_details_fourniture` bigint NOT NULL AUTO_INCREMENT,
   `quantite_fournis` int DEFAULT NULL,
   `taux_tva` int DEFAULT NULL,
@@ -118,8 +118,8 @@ CREATE TABLE IF NOT EXISTS `enregistrements` (
 -- Structure de la table `founitures`
 --
 
-DROP TABLE IF EXISTS `founitures`;
-CREATE TABLE IF NOT EXISTS `founitures` (
+DROP TABLE IF EXISTS `fournitures`;
+CREATE TABLE IF NOT EXISTS `fournitures` (
   `id_details_fourniture` bigint NOT NULL,
   `id_produit` bigint NOT NULL,
   `id_fournisseur` bigint NOT NULL,
