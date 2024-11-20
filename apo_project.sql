@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `clients` (
 -- Structure de la table `details_founitures`
 --
 
-DROP TABLE IF EXISTS `details_founitures`;
+DROP TABLE IF EXISTS `details_fournitures`;
 CREATE TABLE IF NOT EXISTS `details_founitures` (
   `id_details_fourniture` bigint NOT NULL AUTO_INCREMENT,
   `quantite_fournis` int DEFAULT NULL,
